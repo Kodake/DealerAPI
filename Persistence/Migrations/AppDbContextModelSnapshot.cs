@@ -35,18 +35,11 @@ namespace Persistence.Migrations
                     b.Property<int?>("VehicleModelId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehicleModelId1")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("SellerId");
 
                     b.HasIndex("VehicleModelId");
-
-                    b.HasIndex("VehicleModelId1")
-                        .IsUnique()
-                        .HasFilter("[VehicleModelId1] IS NOT NULL");
 
                     b.ToTable("Sales");
                 });
@@ -116,12 +109,8 @@ namespace Persistence.Migrations
                         .HasForeignKey("SellerId");
 
                     b.HasOne("Core.Entities.VehicleModel", "VehicleModel")
-                        .WithMany()
+                        .WithMany("Sales")
                         .HasForeignKey("VehicleModelId");
-
-                    b.HasOne("Core.Entities.VehicleModel", null)
-                        .WithOne("Sale")
-                        .HasForeignKey("Core.Entities.Sale", "VehicleModelId1");
 
                     b.Navigation("Seller");
 
@@ -135,7 +124,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Core.Entities.VehicleModel", b =>
                 {
-                    b.Navigation("Sale");
+                    b.Navigation("Sales");
                 });
 #pragma warning restore 612, 618
         }

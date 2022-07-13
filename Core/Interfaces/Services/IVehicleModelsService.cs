@@ -1,4 +1,5 @@
 ﻿using Core.DTO;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Core.Interfaces.Services
@@ -7,5 +8,8 @@ namespace Core.Interfaces.Services
     {
         /// <inheritdoc/>
         Task SaveVehicleModel(VehicleModelDTO vehicleModel);
+
+        /// <inheritdoc/>
+        Task<List<VehicleModelSalesDTO>> GetTopTenVehicleModelSales();
     }
 }

@@ -27,7 +27,7 @@ namespace Persistence.Repositories
         /// <inheritdoc/>
         public async Task<List<SellerSalesDTO>> GetSellersSalesRanking()
         {
-            var sales = await _context.Sellers
+            List<Seller> sales = await _context.Sellers
                 .Include("Sales")
                 .ToListAsync();
 

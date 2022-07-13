@@ -38,5 +38,21 @@ namespace BackEnd.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [Route("top-10")]
+        [HttpGet]
+        public async Task<IActionResult> GetTopTenVehicleModelSales()
+        {
+            try
+            {
+                var lastSales = await _vehicleModelsService.GetTopTenVehicleModelSales();
+
+                return Ok(lastSales);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

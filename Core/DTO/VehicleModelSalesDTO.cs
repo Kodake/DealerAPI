@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using Core.Entities;
+using System.Collections.Generic;
 
-namespace Core.Entities
+namespace Core.DTO
 {
     /// <summary>
-    /// Class for <see cref="VehicleModel"/> entity
+    /// Class for <see cref="SellerDTO"/> dto
     /// </summary>
-    public sealed class VehicleModel
+    public class VehicleModelSalesDTO
     {
-        /// <summary>
-        /// Represents the primary key for VehicleModel's table
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Represents the VehicleModel's brand
         /// </summary>
@@ -28,9 +24,9 @@ namespace Core.Entities
         public int Year { get; set; }
 
         /// <summary>
-        /// Represents the VehicleModel's tech or extra details
+        /// Represents the VehicleModel's total sales
         /// </summary>
-        public byte[] TechnicalDetails { get; set; }
+        public int TotalSales { get; set; }
 
         /// <summary>
         /// Represents the navigation prop for Sale's table

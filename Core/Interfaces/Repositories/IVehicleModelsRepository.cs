@@ -1,4 +1,5 @@
 ﻿using Core.DTO;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Core.Interfaces.Repositories
@@ -11,5 +12,11 @@ namespace Core.Interfaces.Repositories
         /// <param name="vehicleModel">Entity that contains the attibutes to save the selected entity</param>
         /// <returns></returns>
         Task SaveVehicleModel(VehicleModelDTO vehicleModel);
+
+        /// <summary>
+        /// Returns the all the Seller's sales ranking
+        /// </summary>
+        /// <returns></returns>
+        Task<List<VehicleModelSalesDTO>> GetTopTenVehicleModelSales();
     }
 }

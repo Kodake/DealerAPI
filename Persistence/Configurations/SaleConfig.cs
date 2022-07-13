@@ -12,7 +12,9 @@ namespace Persistence.Configurations
 
             builder.HasOne(e => e.Seller).WithMany(c => c.Sales);
 
-            builder.HasOne(s => s.VehicleModel).WithMany().HasForeignKey(x => x.VehicleModelId);
+            builder.HasOne(e => e.VehicleModel).WithMany(c => c.Sales);
+
+            //builder.HasOne(s => s.VehicleModel).WithMany().HasForeignKey(x => x.VehicleModelId);
         }
     }
 }

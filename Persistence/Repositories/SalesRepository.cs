@@ -12,7 +12,7 @@ namespace Persistence.Repositories
     /// <summary>
     /// Sales repository with its mainly methods
     /// </summary>
-    public sealed class SalesRepository: ISalesRepository
+    public sealed class SalesRepository : ISalesRepository
     {
         /// <summary>
         /// context prop

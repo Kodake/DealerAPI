@@ -3,7 +3,6 @@ using Core.Interfaces.Services;
 using Core.DTO;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Core.Entities;
 
 namespace Core.Services
 {

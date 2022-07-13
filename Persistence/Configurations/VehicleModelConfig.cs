@@ -13,8 +13,6 @@ namespace Persistence.Configurations
             builder.Property(prop => prop.Brand).IsRequired().HasMaxLength(50);
 
             builder.Property(prop => prop.Year).IsRequired();
-
-            builder.HasOne(p => p.Sale);
         }
     }
 }

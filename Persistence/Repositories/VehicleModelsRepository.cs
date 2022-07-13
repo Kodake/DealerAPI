@@ -1,7 +1,10 @@
 ﻿using Core.DTO;
 using Core.Entities;
 using Core.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Persistence.Repositories
@@ -19,6 +22,23 @@ namespace Persistence.Repositories
         public VehicleModelsRepository(AppDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<List<VehicleModelSalesDTO>> GetTopTenVehicleModelSales()
+        {
+            List<VehicleModel> sales = await _context.VehicleModels
+                .Include("Sales")
+                .ToListAsync();
+
+            var totalSales = sales.Take(10).Select(p => new VehicleModelSalesDTO
+            {
+                Brand = p.Brand,
+                Model = p.Model,
+                Year = p.Year,
+                TotalSales = p.Sales.Count
+            }).ToList();
+
+            return totalSales;
         }
 
         /// <inheritdoc/>

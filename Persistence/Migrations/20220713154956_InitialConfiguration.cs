@@ -46,9 +46,7 @@ namespace Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SellerId = table.Column<int>(type: "int", nullable: true),
                     VehicleModelId = table.Column<int>(type: "int", nullable: true),
-                    SellDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SellerId1 = table.Column<int>(type: "int", nullable: true),
-                    VehicleModelId1 = table.Column<int>(type: "int", nullable: true)
+                    SellDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,20 +58,8 @@ namespace Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Sales_Sellers_SellerId1",
-                        column: x => x.SellerId1,
-                        principalTable: "Sellers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Sales_VehicleModels_VehicleModelId",
                         column: x => x.VehicleModelId,
-                        principalTable: "VehicleModels",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Sales_VehicleModels_VehicleModelId1",
-                        column: x => x.VehicleModelId1,
                         principalTable: "VehicleModels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -85,21 +71,9 @@ namespace Persistence.Migrations
                 column: "SellerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sales_SellerId1",
-                table: "Sales",
-                column: "SellerId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Sales_VehicleModelId",
                 table: "Sales",
                 column: "VehicleModelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Sales_VehicleModelId1",
-                table: "Sales",
-                column: "VehicleModelId1",
-                unique: true,
-                filter: "[VehicleModelId1] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Sellers_IdentificationNumber",

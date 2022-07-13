@@ -1,6 +1,7 @@
 ﻿using Core.DTO;
 using Core.Interfaces.Repositories;
 using Core.Interfaces.Services;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Core.Services
@@ -12,6 +13,12 @@ namespace Core.Services
         public VehicleModelsService(IVehicleModelsRepository vehicleModelsRepository)
         {
             _vehicleModelsRepository = vehicleModelsRepository;
+        }
+
+        /// <inheritdoc/>
+        public async Task<List<VehicleModelSalesDTO>> GetTopTenVehicleModelSales()
+        {
+            return await _vehicleModelsRepository.GetTopTenVehicleModelSales();
         }
 
         /// <inheritdoc/>
