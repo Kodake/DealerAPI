@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e967fdc5-4034-488b-9e62-64a0a53723ba": {
+      "ProjectGuid": "e967fdc5-4034-488b-9e62-64a0a53723ba",
+      "DisplayName": "DealerAPI",
+      "ColorIndex": 0
+    },
+    "5a24e26b-6128-40e2-9604-f0bb1270d72f": {
+      "ProjectGuid": "5a24e26b-6128-40e2-9604-f0bb1270d72f",
+      "DisplayName": "Core",
+      "ColorIndex": 1
+    },
+    "2dde0159-0127-40f5-9159-e095ef83f816": {
+      "ProjectGuid": "2dde0159-0127-40f5-9159-e095ef83f816",
+      "DisplayName": "Persistence",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}
