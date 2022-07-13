@@ -87,9 +87,7 @@ namespace Persistence.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Sales_SellerId1",
                 table: "Sales",
-                column: "SellerId1",
-                unique: true,
-                filter: "[SellerId1] IS NOT NULL");
+                column: "SellerId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Sales_VehicleModelId",

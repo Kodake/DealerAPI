@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Context;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220713144705_InitialConfiguration")]
+    partial class InitialConfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,6 +34,9 @@ namespace Persistence.Migrations
                     b.Property<int?>("SellerId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SellerId1")
+                        .HasColumnType("int");
+
                     b.Property<int?>("VehicleModelId")
                         .HasColumnType("int");
 
@@ -41,6 +46,8 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("SellerId");
+
+                    b.HasIndex("SellerId1");
 
                     b.HasIndex("VehicleModelId");
 
@@ -112,8 +119,12 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Core.Entities.Sale", b =>
                 {
                     b.HasOne("Core.Entities.Seller", "Seller")
-                        .WithMany("Sales")
+                        .WithMany()
                         .HasForeignKey("SellerId");
+
+                    b.HasOne("Core.Entities.Seller", null)
+                        .WithMany("Sales")
+                        .HasForeignKey("SellerId1");
 
                     b.HasOne("Core.Entities.VehicleModel", "VehicleModel")
                         .WithMany()

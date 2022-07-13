@@ -39,7 +39,7 @@ namespace BackEnd.Controllers
             }
         }
 
-        [Route("GetSalesFromLastDay")]
+        [Route("last-sales")]
         [HttpGet]
         public async Task<IActionResult> GetSalesFromLastDay()
         {

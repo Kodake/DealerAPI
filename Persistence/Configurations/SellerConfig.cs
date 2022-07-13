@@ -15,8 +15,6 @@ namespace Persistence.Configurations
             builder.Property(prop => prop.IdentificationNumber).IsRequired().HasMaxLength(20);
 
             builder.HasIndex(u => u.IdentificationNumber).IsUnique();
-
-            builder.HasOne(p => p.Sale);
         }
     }
 }

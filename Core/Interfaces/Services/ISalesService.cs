@@ -7,8 +7,10 @@ namespace Core.Interfaces.Services
 {
     public interface ISalesService
     {
+        /// <inheritdoc/>
         Task SaveSale(SaleDTO sale);
 
+        /// <inheritdoc/>
         Task<List<Sale>> GetSalesFromLastDay();
     }
 }

@@ -2,6 +2,7 @@
 using Core.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,7 +14,7 @@ namespace BackEnd.Controllers
     public class SellerController : ControllerBase
     {
         private readonly ISellersService _sellersService;
-        
+
         // POST api/<SellerController>
         public SellerController(ISellersService sellersService)
         {
@@ -31,7 +32,23 @@ namespace BackEnd.Controllers
                 }
 
                 await _sellersService.SaveSeller(seller);
-                return Ok(new { message = "Se agregó el vendedor satisfactoriamente"});
+                return Ok(new { message = "Se agregó el vendedor satisfactoriamente" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Route("sellers-ranking")]
+        [HttpGet]
+        public async Task<IActionResult> GetSellersSalesRanking()
+        {
+            try
+            {
+                var lastSales = await _sellersService.GetSellersSalesRanking();
+
+                return Ok(lastSales);
             }
             catch (Exception ex)
             {

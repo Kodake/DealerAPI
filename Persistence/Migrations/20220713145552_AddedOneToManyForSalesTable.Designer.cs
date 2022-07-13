@@ -10,8 +10,8 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220713100851_InitialConfiguration")]
-    partial class InitialConfiguration
+    [Migration("20220713145552_AddedOneToManyForSalesTable")]
+    partial class AddedOneToManyForSalesTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,9 +34,6 @@ namespace Persistence.Migrations
                     b.Property<int?>("SellerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SellerId1")
-                        .HasColumnType("int");
-
                     b.Property<int?>("VehicleModelId")
                         .HasColumnType("int");
 
@@ -46,10 +43,6 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("SellerId");
-
-                    b.HasIndex("SellerId1")
-                        .IsUnique()
-                        .HasFilter("[SellerId1] IS NOT NULL");
 
                     b.HasIndex("VehicleModelId");
 
@@ -121,12 +114,8 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Core.Entities.Sale", b =>
                 {
                     b.HasOne("Core.Entities.Seller", "Seller")
-                        .WithMany()
+                        .WithMany("Sales")
                         .HasForeignKey("SellerId");
-
-                    b.HasOne("Core.Entities.Seller", null)
-                        .WithOne("Sale")
-                        .HasForeignKey("Core.Entities.Sale", "SellerId1");
 
                     b.HasOne("Core.Entities.VehicleModel", "VehicleModel")
                         .WithMany()
@@ -143,7 +132,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Core.Entities.Seller", b =>
                 {
-                    b.Navigation("Sale");
+                    b.Navigation("Sales");
                 });
 
             modelBuilder.Entity("Core.Entities.VehicleModel", b =>

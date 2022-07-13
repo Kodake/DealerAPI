@@ -1,17 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Core.Entities
+namespace Core.DTO
 {
     /// <summary>
-    /// Class for <see cref="Sale"/> entity
+    /// Class for <see cref="SellerSalesDTO"/> dto
     /// </summary>
-    public sealed class Seller
+    public class SellerSalesDTO
     {
-        /// <summary>
-        /// Represents the primary key for Seller's table
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Represents the Seller's first name
         /// </summary>
@@ -28,8 +27,8 @@ namespace Core.Entities
         public string IdentificationNumber { get; set; }
 
         /// <summary>
-        /// Represents the navigation prop for Sale's table
+        /// Represents the Seller's total sales
         /// </summary>
-        public IList<Sale> Sales { get; set; }
+        public int TotalSales { get; set; }
     }
 }

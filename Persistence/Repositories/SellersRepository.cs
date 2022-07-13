@@ -3,6 +3,9 @@ using Core.Interfaces.Repositories;
 using Core.DTO;
 using Persistence.Context;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Persistence.Repositories
 {
@@ -19,6 +22,24 @@ namespace Persistence.Repositories
         public SellersRepository(AppDbContext context)
         {
             _context = context;
+        }
+
+        /// <inheritdoc/>
+        public async Task<List<SellerSalesDTO>> GetSellersSalesRanking()
+        {
+            var sales = await _context.Sellers
+                .Include("Sales")
+                .ToListAsync();
+
+            var totalSales = sales.Select(p => new SellerSalesDTO
+            {
+                FirstName = p.FirstName,
+                LastName = p.LastName,
+                IdentificationNumber = p.IdentificationNumber,
+                TotalSales = p.Sales.Count
+            }).OrderByDescending(x => x.TotalSales).ToList();
+
+            return totalSales;
         }
 
         /// <inheritdoc/>
