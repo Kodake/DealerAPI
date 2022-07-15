@@ -38,10 +38,8 @@ namespace Persistence.Repositories
                 Year = p.Year,
                 TotalSales = p.Sales.Count()
             })
-            .ToList();
-
-            var top10 = totalSales;
-            top10.OrderBy(p => p.TotalSales).ToList();
+                .OrderByDescending(x => x.TotalSales)
+                .ToList();
 
             return totalSales;
         }
