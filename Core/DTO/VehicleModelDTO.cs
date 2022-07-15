@@ -19,10 +19,5 @@
         /// Represents the VehicleModel's build year
         /// </summary>
         public int Year { get; set; }
-
-        /// <summary>
-        /// Represents the VehicleModel's tech or extra details
-        /// </summary>
-        public byte[] TechnicalDetails { get; set; }
     }
 }

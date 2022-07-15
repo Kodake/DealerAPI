@@ -26,5 +26,11 @@ namespace Core.Services
         {
             await _vehicleModelsRepository.SaveVehicleModel(vehicleModel);
         }
+
+        /// <inheritdoc/>
+        public async Task SaveVehicleModelWithTechDetails(VehicleModelDTO vehicleModel, byte[] details)
+        {
+            await _vehicleModelsRepository.SaveVehicleModelWithTechDetails(vehicleModel, details);
+        }
     }
 }

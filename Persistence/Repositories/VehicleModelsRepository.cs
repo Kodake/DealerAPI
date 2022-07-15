@@ -36,7 +36,8 @@ namespace Persistence.Repositories
                 Brand = p.Brand,
                 Model = p.Model,
                 Year = p.Year,
-                TotalSales = p.Sales.Count()
+                TotalSales = p.Sales.Count(),
+                TechnicalDetails = p.TechnicalDetails
             })
                 .OrderByDescending(x => x.TotalSales)
                 .ToList();
@@ -51,8 +52,22 @@ namespace Persistence.Repositories
             {
                 Brand = vehicleModelDTO.Brand,
                 Model = vehicleModelDTO.Model,
+                Year = vehicleModelDTO.Year
+            };
+
+            _context.Add(vehicleModel);
+            await _context.SaveChangesAsync();
+        }
+
+        /// <inheritdoc/>
+        public async Task SaveVehicleModelWithTechDetails(VehicleModelDTO vehicleModelDTO, byte[] details)
+        {
+            VehicleModel vehicleModel = new()
+            {
+                Brand = vehicleModelDTO.Brand,
+                Model = vehicleModelDTO.Model,
                 Year = vehicleModelDTO.Year,
-                TechnicalDetails = vehicleModelDTO.TechnicalDetails
+                TechnicalDetails = details
             };
 
             _context.Add(vehicleModel);

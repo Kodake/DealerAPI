@@ -27,5 +27,10 @@ namespace Core.DTO
         /// Represents the VehicleModel's total sales
         /// </summary>
         public int TotalSales { get; set; }
+
+        /// <summary>
+        /// Represents the VehicleModel's tech or extra details
+        /// </summary>
+        public byte[] TechnicalDetails { get; set; }
     }
 }

@@ -18,5 +18,11 @@ namespace Core.Interfaces.Repositories
         /// </summary>
         /// <returns></returns>
         Task<List<VehicleModelSalesDTO>> GetTopTenVehicleModelSales();
+
+        /// <summary>
+        /// Save technical details for some specific vehicle
+        /// </summary>
+        /// <returns></returns>
+        Task SaveVehicleModelWithTechDetails(VehicleModelDTO vehicleModel, byte[] details);
     }
 }

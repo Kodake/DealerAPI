@@ -11,5 +11,8 @@ namespace Core.Interfaces.Services
 
         /// <inheritdoc/>
         Task<List<VehicleModelSalesDTO>> GetTopTenVehicleModelSales();
+
+        /// <inheritdoc/>
+        Task SaveVehicleModelWithTechDetails(VehicleModelDTO vehicleModel, byte[] details);
     }
 }
