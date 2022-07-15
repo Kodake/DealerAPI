@@ -18,6 +18,6 @@ namespace Core.Interfaces.Repositories
         /// Returns the all the sales for the last 24 hours
         /// </summary>
         /// <returns></returns>
-        Task<List<Sale>> GetSalesFromLastDay();
+        Task<List<SaleDetailsDTO>> GetSalesFromLastDay();
     }
 }

@@ -29,10 +29,10 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("SellDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("SellerId")
+                    b.Property<int>("SellerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehicleModelId")
+                    b.Property<int>("VehicleModelId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -106,11 +106,15 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Core.Entities.Seller", "Seller")
                         .WithMany("Sales")
-                        .HasForeignKey("SellerId");
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Core.Entities.VehicleModel", "VehicleModel")
                         .WithMany("Sales")
-                        .HasForeignKey("VehicleModelId");
+                        .HasForeignKey("VehicleModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Seller");
 

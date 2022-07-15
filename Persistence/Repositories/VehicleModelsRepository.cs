@@ -24,19 +24,24 @@ namespace Persistence.Repositories
             _context = context;
         }
 
+        /// <inheritdoc/>
         public async Task<List<VehicleModelSalesDTO>> GetTopTenVehicleModelSales()
         {
             List<VehicleModel> sales = await _context.VehicleModels
-                .Include("Sales")
+                .Include("Sales.Seller")
                 .ToListAsync();
 
-            var totalSales = sales.Take(10).Select(p => new VehicleModelSalesDTO
+            List<VehicleModelSalesDTO> totalSales = sales.Take(10).Select(p => new VehicleModelSalesDTO
             {
                 Brand = p.Brand,
                 Model = p.Model,
                 Year = p.Year,
-                TotalSales = p.Sales.Count
-            }).ToList();
+                TotalSales = p.Sales.Count()
+            })
+            .ToList();
+
+            var top10 = totalSales;
+            top10.OrderBy(p => p.TotalSales).ToList();
 
             return totalSales;
         }

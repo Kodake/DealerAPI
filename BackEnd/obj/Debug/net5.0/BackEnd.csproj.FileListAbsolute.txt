@@ -126,3 +126,6 @@ C:\Users\Kodake\Desktop\DealerAPI\BackEnd\obj\Debug\net5.0\refint\BackEnd.dll
 C:\Users\Kodake\Desktop\DealerAPI\BackEnd\obj\Debug\net5.0\BackEnd.pdb
 C:\Users\Kodake\Desktop\DealerAPI\BackEnd\obj\Debug\net5.0\BackEnd.genruntimeconfig.cache
 C:\Users\Kodake\Desktop\DealerAPI\BackEnd\obj\Debug\net5.0\ref\BackEnd.dll
+C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

@@ -17,7 +17,7 @@ namespace Core.Services
         }
 
         /// <inheritdoc/>
-        public async Task<List<Sale>> GetSalesFromLastDay()
+        public async Task<List<SaleDetailsDTO>> GetSalesFromLastDay()
         {
             return await _salesRepository.GetSalesFromLastDay();
         }

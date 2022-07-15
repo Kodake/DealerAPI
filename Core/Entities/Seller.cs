@@ -5,7 +5,7 @@ namespace Core.Entities
     /// <summary>
     /// Class for <see cref="Sale"/> entity
     /// </summary>
-    public sealed class Seller
+    public class Seller
     {
         /// <summary>
         /// Represents the primary key for Seller's table

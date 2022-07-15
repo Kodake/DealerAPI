@@ -27,10 +27,5 @@ namespace Core.DTO
         /// Represents the VehicleModel's total sales
         /// </summary>
         public int TotalSales { get; set; }
-
-        /// <summary>
-        /// Represents the navigation prop for Sale's table
-        /// </summary>
-        public IList<Sale> Sales { get; set; }
     }
 }

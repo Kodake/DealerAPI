@@ -25,10 +25,24 @@ namespace Persistence.Repositories
         }
 
         /// <inheritdoc/>
-        public async Task<List<Sale>> GetSalesFromLastDay()
+        public async Task<List<SaleDetailsDTO>> GetSalesFromLastDay()
         {
-            return await _context.Sales.Where(x => x.SellDate > System.DateTime.Now.AddHours(-24))
+            var sales = await _context.Sales
+                .Include("Seller")
+                .Include("VehicleModel")
+                .Where(x => x.SellDate > System.DateTime.Now.AddHours(-24))
                                                 .ToListAsync();
+
+            var totalSales = sales.Select(p => new SaleDetailsDTO
+            {
+                SellerId = p.SellerId,
+                SellerName = p.Seller.FirstName,
+                VehicleModelId = p.VehicleModelId,
+                VehicleBrand = p.VehicleModel.Brand,
+                SellDate = p.SellDate,
+            }).ToList();
+
+            return totalSales;
         }
 
         /// <inheritdoc/>

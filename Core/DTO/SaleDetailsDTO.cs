@@ -1,17 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Core.Entities
+namespace Core.DTO
 {
     /// <summary>
-    /// Class for <see cref="Sale"/> entity
+    /// Class for <see cref="SaleDetailsDTO"/> dto
     /// </summary>
-    public class Sale
+    public class SaleDetailsDTO
     {
-        /// <summary>
-        /// Represents the primary key for Sale's table
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Represents the foreign key for Seller's table
         /// </summary>
@@ -28,13 +27,13 @@ namespace Core.Entities
         public DateTime SellDate { get; set; }
 
         /// <summary>
-        /// Represents the navigation prop for Seller's table
+        /// Represents the Seller's name
         /// </summary>
-        public Seller Seller { get; set; }
+        public string SellerName { get; set; }
 
         /// <summary>
-        /// Represents the navigation prop for VehicleModel's table
+        /// Represents the VehicleModel's brand
         /// </summary>
-        public VehicleModel VehicleModel { get; set; }
+        public string VehicleBrand { get; set; }
     }
 }

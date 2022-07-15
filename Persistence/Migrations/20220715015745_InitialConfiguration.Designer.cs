@@ -10,7 +10,7 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220713154956_InitialConfiguration")]
+    [Migration("20220715015745_InitialConfiguration")]
     partial class InitialConfiguration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,10 +31,10 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("SellDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("SellerId")
+                    b.Property<int>("SellerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehicleModelId")
+                    b.Property<int>("VehicleModelId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -108,11 +108,15 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Core.Entities.Seller", "Seller")
                         .WithMany("Sales")
-                        .HasForeignKey("SellerId");
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Core.Entities.VehicleModel", "VehicleModel")
                         .WithMany("Sales")
-                        .HasForeignKey("VehicleModelId");
+                        .HasForeignKey("VehicleModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Seller");
 

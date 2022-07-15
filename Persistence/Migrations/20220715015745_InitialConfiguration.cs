@@ -44,8 +44,8 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SellerId = table.Column<int>(type: "int", nullable: true),
-                    VehicleModelId = table.Column<int>(type: "int", nullable: true),
+                    SellerId = table.Column<int>(type: "int", nullable: false),
+                    VehicleModelId = table.Column<int>(type: "int", nullable: false),
                     SellDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -56,13 +56,13 @@ namespace Persistence.Migrations
                         column: x => x.SellerId,
                         principalTable: "Sellers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Sales_VehicleModels_VehicleModelId",
                         column: x => x.VehicleModelId,
                         principalTable: "VehicleModels",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

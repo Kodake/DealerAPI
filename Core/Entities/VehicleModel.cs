@@ -5,7 +5,7 @@ namespace Core.Entities
     /// <summary>
     /// Class for <see cref="VehicleModel"/> entity
     /// </summary>
-    public sealed class VehicleModel
+    public class VehicleModel
     {
         /// <summary>
         /// Represents the primary key for VehicleModel's table
