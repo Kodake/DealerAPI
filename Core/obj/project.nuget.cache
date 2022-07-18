@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Xhkp46FN0nEkjLK+EpVrBE24XMWrA4ffWIWtEUgjyC+wegyUNw9A7bH7ryBu3ccn4dV5+KLKfFu2jQ4sjBQf2Q==",
+  "dgSpecHash": "K0D6pULPkVm8MRjQ+khbp4JIhmN8CwHXhkTM+GwS12agX1N9N30q6r4Kef+E2RgCQW0kjumEPBeaiBNyQwpmDg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kodake\\Desktop\\DealerAPI\\Core\\Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Kodake\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

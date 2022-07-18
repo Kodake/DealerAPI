@@ -27,6 +27,8 @@ namespace Persistence.Context
         public DbSet<Sale> Sales { get; set; }
         public DbSet<VehicleModel> VehicleModels { get; set; }
         public DbSet<Seller> Sellers { get; set; }
+        public DbSet<Factura> Facturas { get; set; }
+        public DbSet<FacturaDetalle> FacturaDetalles { get; set; }
         #endregion
     }
 }

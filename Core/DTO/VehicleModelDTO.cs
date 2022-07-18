@@ -6,6 +6,11 @@
     public class VehicleModelDTO
     {
         /// <summary>
+        /// Represents the primary key for VehicleModel's table
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Represents the VehicleModel's brand
         /// </summary>
         public string Brand { get; set; }
