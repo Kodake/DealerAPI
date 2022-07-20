@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "K0D6pULPkVm8MRjQ+khbp4JIhmN8CwHXhkTM+GwS12agX1N9N30q6r4Kef+E2RgCQW0kjumEPBeaiBNyQwpmDg==",
+  "dgSpecHash": "F+CReziS9j5RcKKfFFz+vyETqr04SbVgXgGFytTEFpj7iLG0bkuGGMxAkeXHOEVNbNC5NtPAZE/bTwHYm1kRiw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kodake\\Desktop\\DealerAPI\\Core\\Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Kodake\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512"
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.1.2\\fluentvalidation.aspnetcore.11.1.2.nupkg.sha512",
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.1.0\\fluentvalidation.dependencyinjectionextensions.11.1.0.nupkg.sha512",
+    "C:\\Users\\Kodake\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kodake\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
   ],
   "logs": []
 }

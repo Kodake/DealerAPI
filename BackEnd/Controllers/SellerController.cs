@@ -1,7 +1,12 @@
-﻿using Core.DTO;
+﻿using BackEnd.Helpers;
+using Core.DTO;
 using Core.Interfaces.Services;
+using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,11 +17,13 @@ namespace BackEnd.Controllers
     [ApiController]
     public class SellerController : ControllerBase
     {
+        private IValidator<SellerDTO> _validator;
         private readonly ISellersService _sellersService;
 
         // POST api/<SellerController>
-        public SellerController(ISellersService sellersService)
+        public SellerController(IValidator<SellerDTO> validator, ISellersService sellersService)
         {
+            _validator = validator;
             _sellersService = sellersService;
         }
 
@@ -28,6 +35,13 @@ namespace BackEnd.Controllers
                 if (seller == null)
                 {
                     return BadRequest();
+                }
+
+                ValidationResult result = await _validator.ValidateAsync(seller);
+
+                if (!result.IsValid)
+                {
+                    return BadRequest(ValidatorErrorExtensions.GetValidatorErrors(result.Errors));
                 }
 
                 await _sellersService.SaveSeller(seller);

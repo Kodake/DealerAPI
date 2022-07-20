@@ -1,6 +1,8 @@
 using Core.Interfaces.Repositories;
 using Core.Interfaces.Services;
 using Core.Services;
+using Core.Validators;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -58,6 +60,13 @@ namespace BackEnd
             services.AddScoped<ISellersRepository, SellersRepository>();
             services.AddScoped<IVehicleModelsRepository, VehicleModelsRepository>();
             services.AddScoped<ISalesRepository, SalesRepository>();
+
+            #endregion
+
+            #region Inject validators
+
+            services.AddValidatorsFromAssemblyContaining<SellerValidator>();
+            services.AddValidatorsFromAssemblyContaining<VehicleModelValidator>();
 
             #endregion
         }

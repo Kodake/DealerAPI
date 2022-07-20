@@ -130,3 +130,6 @@ C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\Microsoft.AspNetCore.
 C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\MathNet.Numerics.dll
+C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\Kodake\Desktop\DealerAPI\BackEnd\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll

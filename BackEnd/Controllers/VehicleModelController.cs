@@ -1,11 +1,11 @@
-﻿using Core.DTO;
+﻿using BackEnd.Helpers;
+using Core.DTO;
 using Core.Interfaces.Services;
+using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,11 +16,13 @@ namespace BackEnd.Controllers
     [ApiController]
     public class VehicleModelController : ControllerBase
     {
+        private IValidator<VehicleModelDTO> _validator;
         private readonly IVehicleModelsService _vehicleModelsService;
         
         // GET: api/<VehicleModelController>
-        public VehicleModelController(IVehicleModelsService vehicleModelsService)
+        public VehicleModelController(IValidator<VehicleModelDTO> validator, IVehicleModelsService vehicleModelsService)
         {
+            _validator = validator;
             _vehicleModelsService = vehicleModelsService;
         }
 
@@ -32,6 +34,13 @@ namespace BackEnd.Controllers
                 if (vehicleModel == null)
                 {
                     return BadRequest();
+                }
+
+                ValidationResult result = await _validator.ValidateAsync(vehicleModel);
+
+                if (!result.IsValid)
+                {
+                    return BadRequest(ValidatorErrorExtensions.GetValidatorErrors(result.Errors));
                 }
 
                 await _vehicleModelsService.SaveVehicleModel(vehicleModel);
@@ -59,8 +68,9 @@ namespace BackEnd.Controllers
                     return BadRequest("Please upload a json file");
                 }
 
-                byte[] details = await GetBytesFromFile(technicalDetails);
+                byte[] details = await FormFileExtensions.GetBytesFromFile(technicalDetails);
                 await _vehicleModelsService.SaveVehicleModelWithTechDetails(vehicleModel, details);
+
                 return Ok(new { message = "Se agregó el vehículo satisfactoriamente" });
             }
             catch (Exception ex)
@@ -83,13 +93,6 @@ namespace BackEnd.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }
-
-        private static async Task<byte[]> GetBytesFromFile(IFormFile technicalDetails)
-        {
-            await using var memoryStream = new MemoryStream();
-            await technicalDetails.CopyToAsync(memoryStream);
-            return memoryStream.ToArray();
         }
     }
 }

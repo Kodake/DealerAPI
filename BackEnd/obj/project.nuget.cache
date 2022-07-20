@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JO0gOm0dLBr7dYm6zmjwAEyeRBxJgMAdjt75KlSwjSZ6vks4ANTIVsa5KyflvGNwxQOazE7oHYMrfErKfrLOmw==",
+  "dgSpecHash": "gtuWt2mlSPcyFrhCJhBW8HXQZut6/opxkwr3W52xDayQuqtyOS235jvbKTiPAk2IynyRcjPkl3aFUkbXen1Lqw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kodake\\Desktop\\DealerAPI\\BackEnd\\BackEnd.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.1.2\\fluentvalidation.aspnetcore.11.1.2.nupkg.sha512",
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.1.0\\fluentvalidation.dependencyinjectionextensions.11.1.0.nupkg.sha512",
     "C:\\Users\\Kodake\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Kodake\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512",
     "C:\\Users\\Kodake\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.17\\microsoft.aspnetcore.jsonpatch.5.0.17.nupkg.sha512",

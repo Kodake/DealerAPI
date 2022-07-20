@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HyuJCj7wT/pdeADCxGnuwDAIapY83t6CvJSD1EVvjtHsrjWxK45t2owhnm6XKTObnDassz5IVWE2X9FZMCVFVQ==",
+  "dgSpecHash": "EGuPfu+I/Fo/diLXqE0J2eCQVB6Jv9x+ify3AZJ/2nDnLF95nC32r/rkOA5CagPdIQTSm80tLtUDLpjVwKVFtQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kodake\\Desktop\\DealerAPI\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.1.2\\fluentvalidation.aspnetcore.11.1.2.nupkg.sha512",
+    "C:\\Users\\Kodake\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.1.0\\fluentvalidation.dependencyinjectionextensions.11.1.0.nupkg.sha512",
     "C:\\Users\\Kodake\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Kodake\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512",
     "C:\\Users\\Kodake\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
